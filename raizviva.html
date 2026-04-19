@@ -1,965 +1,489 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Raiz Viva — Brand Briefing</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Raiz Viva — Permaculture Farm & Forest Immersions | Atlantic Forest, Brazil</title>
+<meta name="description" content="Three-day immersions in the Atlantic Forest. Agroforestry, natural building, and wild food at Raiz Viva permaculture farm in Espírito Santo, Brazil.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --forest:   #1C3A2A;
-    --moss:     #3B5E3A;
-    --sage:     #7A9E72;
-    --mist:     #B8CEAF;
-    --cream:    #F2EDE3;
-    --linen:    #E8E0D0;
-    --terracota:#B85C38;
-    --clay:     #D4845A;
-    --sand:     #E8C99A;
-    --charcoal: #2A2720;
-    --warm-gray:#8A8070;
-    --off-white:#FAF7F2;
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { font-size: 16px; }
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--off-white);
-    color: var(--charcoal);
-    line-height: 1.6;
-  }
+:root{
+  --forest:#1C3A2A; --moss:#3B5E3A; --sage:#7A9E72; --mist:#B8CEAF; --cream:#F2EDE3; --linen:#E8E0D0; --terracota:#B85C38; --clay:#D4845A; --sand:#E8C99A; --charcoal:#2A2720; --warm-gray:#8A8070;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;font-weight:300;background:var(--cream);color:var(--warm-gray);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:300;line-height:1.15;color:var(--forest)}
+h1 em,h2 em,h3 em{font-style:italic}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.container{max-width:1120px;margin:0 auto;padding:0 24px}
 
-  /* ── COVER ── */
-  .cover {
-    min-height: 100vh;
-    background: var(--forest);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 4rem 2rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .cover::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-      radial-gradient(ellipse 60% 40% at 20% 80%, rgba(59,94,58,.35) 0%, transparent 70%),
-      radial-gradient(ellipse 50% 60% at 80% 20%, rgba(184,92,56,.12) 0%, transparent 70%);
-  }
-  .cover-inner { position: relative; text-align: center; max-width: 520px; }
-  .cover-eyebrow {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: .2em;
-    text-transform: uppercase;
-    color: var(--sage);
-    margin-bottom: 2rem;
-  }
+/* NAV */
+nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:20px 0;transition:background .3s ease,padding .3s ease}
+nav.scrolled{background:rgba(28,58,42,.95);padding:14px 0;backdrop-filter:blur(8px)}
+.nav-inner{display:flex;justify-content:space-between;align-items:center}
+.brand{display:flex;align-items:center;gap:10px;color:var(--cream);font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:.02em}
+.brand svg{width:26px;height:26px;stroke:var(--clay);stroke-width:1.3;fill:none}
+.nav-links{display:none;gap:36px}
+.nav-links a{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--mist);transition:color .2s}
+.nav-links a:hover{color:var(--cream)}
+.menu-btn{display:block;background:none;border:none;cursor:pointer;width:28px;height:20px;position:relative}
+.menu-btn span{position:absolute;left:0;width:100%;height:1.5px;background:var(--cream);transition:.3s}
+.menu-btn span:nth-child(1){top:0}
+.menu-btn span:nth-child(2){top:9px}
+.menu-btn span:nth-child(3){top:18px}
+@media(min-width:768px){.nav-links{display:flex}.menu-btn{display:none}}
 
-  /* ── LOGO SVG ── */
-  .logo-lockup { margin-bottom: 2.5rem; }
-  .brand-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(52px, 10vw, 80px);
-    font-weight: 300;
-    color: var(--cream);
-    letter-spacing: .04em;
-    line-height: 1.05;
-    display: block;
-  }
-  .brand-name em {
-    font-style: italic;
-    color: var(--clay);
-  }
-  .brand-tagline {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 12px;
-    font-weight: 300;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    color: var(--mist);
-    margin-top: .75rem;
-  }
-  .cover-meta {
-    margin-top: 4rem;
-    font-size: 11px;
-    color: var(--sage);
-    letter-spacing: .08em;
-  }
+/* Mobile Menu */
+.mobile-menu{position:fixed;inset:0;background:var(--forest);z-index:999;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:32px;transform:translateX(100%);transition:transform .4s ease}
+.mobile-menu.open{transform:translateX(0)}
+.mobile-menu a{font-size:14px;text-transform:uppercase;letter-spacing:.14em;color:var(--cream);font-weight:400}
+.mobile-menu .whatsapp-mobile{margin-top:24px;background:#25D366;color:var(--forest);padding:12px 24px;border-radius:4px;font-weight:500}
+.no-scroll{overflow:hidden}
 
-  /* ── SECTIONS ── */
-  .section {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 5rem 2rem;
-    border-bottom: 1px solid var(--linen);
-  }
-  .section:last-child { border-bottom: none; }
-  .section-label {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: .2em;
-    text-transform: uppercase;
-    color: var(--sage);
-    margin-bottom: 1rem;
-  }
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(28px, 5vw, 40px);
-    font-weight: 400;
-    color: var(--forest);
-    line-height: 1.15;
-    margin-bottom: 1.5rem;
-  }
-  .section-title em { font-style: italic; color: var(--terracota); }
-  .section-body {
-    font-size: 15px;
-    font-weight: 300;
-    color: var(--warm-gray);
-    line-height: 1.8;
-    max-width: 620px;
-  }
+/* HERO */
+#hero{min-height:100vh;background:var(--forest);position:relative;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+#hero .texture{position:absolute;inset:0;opacity:.4;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.18'/%3E%3C/svg%3E")}
+.hero-content{position:relative;z-index:2;padding:0 24px;max-width:800px}
+.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:var(--sage);margin-bottom:24px}
+#hero h1{font-size:42px;color:var(--cream);font-weight:300;margin-bottom:24px}
+#hero h1 em{color:var(--clay);font-style:italic}
+.hero-sub{font-size:16px;color:var(--mist);max-width:480px;margin:0 auto 40px}
+.ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 28px;border-radius:4px;font-size:14px;font-weight:400;transition:opacity .2s;border:1px solid transparent}
+.btn-primary{background:var(--terracota);color:var(--cream)}
+.btn-secondary{background:transparent;border-color:var(--sage);color:var(--mist)}
+.btn:hover{opacity:.9}
+.scroll-indicator{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);width:1px;height:48px;background:var(--sage);opacity:.5}
+@media(min-width:768px){#hero h1{font-size:72px}}
 
-  /* ── BRAND PILLARS ── */
-  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
-  .pillar {
-    background: var(--cream);
-    border-radius: 12px;
-    padding: 1.5rem;
-  }
-  .pillar-icon {
-    width: 36px;
-    height: 36px;
-    margin-bottom: 1rem;
-  }
-  .pillar-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--forest);
-    margin-bottom: .5rem;
-  }
-  .pillar-desc {
-    font-size: 13px;
-    font-weight: 300;
-    color: var(--warm-gray);
-    line-height: 1.6;
-  }
+/* Sections base */
+section{position:relative}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
 
-  /* ── COLOR PALETTE ── */
-  .palette-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2.5rem; }
-  .swatch-card { border-radius: 12px; overflow: hidden; }
-  .swatch-block { height: 100px; }
-  .swatch-info { padding: .75rem; background: white; }
-  .swatch-name { font-size: 13px; font-weight: 500; color: var(--charcoal); }
-  .swatch-hex { font-family: 'DM Sans', monospace; font-size: 11px; color: var(--warm-gray); margin-top: 2px; }
-  .swatch-role { font-size: 11px; color: var(--warm-gray); margin-top: 3px; line-height: 1.4; }
+/* PHILOSOPHY */
+#philosophy{background:var(--cream);padding:80px 0}
+.phil-grid{display:grid;gap:48px}
+.phil-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:28px;color:var(--forest);line-height:1.3}
+.phil-text p{font-size:15px;color:var(--warm-gray);margin-bottom:16px}
+.divider{height:1px;background:rgba(138,128,112,.2);margin:56px 0 40px}
+.stats{display:grid;gap:32px;grid-template-columns:repeat(1,1fr)}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--forest);line-height:1}
+.stat-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--warm-gray);margin-top:6px}
+@media(min-width:768px){#philosophy{padding:120px 0}.phil-quote{font-size:32px}.stats{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1024px){.phil-grid{grid-template-columns:1.1fr .9fr;align-items:start}}
 
-  .palette-secondary { margin-top: 1rem; }
-  .palette-secondary .palette-grid { grid-template-columns: repeat(3, 1fr); }
+/* EXPERIENCES */
+#experiences{background:var(--forest);padding:80px 0}
+#experiences .eyebrow{color:var(--sage)}
+#experiences h2{font-size:36px;color:var(--cream);margin:12px 0 48px}
+.exp-grid{display:grid;gap:24px}
+.card{background:var(--moss);border:.5px solid rgba(184,206,175,.2);border-radius:12px;padding:32px;position:relative}
+.card-price{position:absolute;top:28px;right:28px;font-size:13px;color:var(--mist);font-weight:400}
+.card h3{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;color:var(--cream);margin-bottom:12px}
+.pill{display:inline-block;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--mist);border:1px solid var(--sage);padding:4px 10px;border-radius:20px;margin-bottom:16px}
+.card-desc{font-size:13px;color:var(--mist);margin-bottom:20px;line-height:1.6}
+.includes{list-style:none;margin-bottom:24px}
+.includes li{font-size:13px;color:var(--mist);margin-bottom:6px}
+.includes li::before{content:"— ";color:var(--sage)}
+.card-cta{font-size:13px;color:var(--clay);font-weight:500;letter-spacing:.02em}
+.badge{position:absolute;top:-10px;left:28px;background:var(--terracota);color:var(--cream);font-size:10px;text-transform:uppercase;letter-spacing:.08em;padding:4px 8px;border-radius:4px}
+@media(min-width:768px){#experiences{padding:120px 0}#experiences h2{font-size:44px}}
+@media(min-width:1024px){.exp-grid{grid-template-columns:repeat(3,1fr)}}
 
-  .palette-rule {
-    margin-top: 2rem;
-    background: var(--cream);
-    border-radius: 12px;
-    padding: 1.25rem 1.5rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-  .rule-item {}
-  .rule-label { font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--sage); font-weight: 500; margin-bottom: .5rem; }
-  .rule-swatch-row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
-  .rule-dot { width: 22px; height: 22px; border-radius: 50%; }
-  .rule-plus { font-size: 14px; color: var(--warm-gray); }
-  .rule-name { font-size: 12px; color: var(--warm-gray); margin-top: 5px; }
+/* FARM */
+#farm{background:var(--linen);padding:80px 0}
+.farm-grid{display:grid;gap:20px;margin-bottom:56px}
+.farm-large,.farm-small{position:relative;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--cream);font-size:12px;letter-spacing:.02em;padding:20px}
+.farm-large{background:var(--moss);min-height:360px}
+.farm-smalls{display:grid;gap:20px}
+.farm-small:nth-child(1){background:var(--sage);min-height:170px}
+.farm-small:nth-child(2){background:var(--terracota);min-height:170px}
+.farm-facts{display:grid;gap:32px}
+.fact-label{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--terracota);margin-bottom:8px}
+.fact-body{font-size:13px;color:var(--warm-gray);line-height:1.6}
+@media(min-width:768px){#farm{padding:120px 0}.farm-large{min-height:500px}}
+@media(min-width:1024px){.farm-grid{grid-template-columns:1.5fr .8fr;gap:24px}.farm-large{min-height:700px}.farm-small:nth-child(1),.farm-small:nth-child(2){min-height:338px}.farm-facts{grid-template-columns:repeat(3,1fr);gap:48px}}
 
-  /* ── TYPOGRAPHY ── */
-  .type-section { margin-top: 2.5rem; }
-  .type-family {
-    background: var(--cream);
-    border-radius: 12px;
-    padding: 2rem;
-    margin-bottom: 1rem;
-  }
-  .type-meta { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 8px; }
-  .type-info .type-family-name { font-size: 13px; font-weight: 500; color: var(--charcoal); }
-  .type-info .type-use { font-size: 11px; color: var(--warm-gray); margin-top: 3px; }
-  .type-badge {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    padding: 4px 10px;
-    border-radius: 99px;
-    background: var(--forest);
-    color: var(--mist);
-  }
-  .type-specimen-display {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(36px, 6vw, 52px);
-    font-weight: 300;
-    color: var(--forest);
-    line-height: 1.1;
-  }
-  .type-specimen-display em { font-style: italic; }
-  .type-specimen-body {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    font-weight: 300;
-    color: var(--warm-gray);
-    line-height: 1.8;
-    margin-top: .75rem;
-  }
-  .type-scale { margin-top: 1.5rem; border-top: 1px solid var(--linen); padding-top: 1.25rem; display: flex; flex-direction: column; gap: .5rem; }
-  .scale-row { display: flex; align-items: baseline; gap: 1rem; }
-  .scale-label { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--sage); min-width: 80px; flex-shrink: 0; }
+/* WILD FOOD */
+#wildfood{background:var(--forest);padding:80px 0}
+#wildfood .eyebrow{color:var(--sage)}
+#wildfood h2{font-size:32px;color:var(--cream);font-style:italic;margin:12px 0 20px;max-width:600px}
+.wild-intro{font-size:14px;color:var(--mist);max-width:540px;margin-bottom:48px}
+.pancs{display:grid;gap:24px;grid-template-columns:repeat(2,1fr)}
+.panc-name{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--clay);margin-bottom:4px}
+.panc-desc{font-size:11px;color:var(--sage);line-height:1.5}
+@media(min-width:768px){#wildfood{padding:100px 0}#wildfood h2{font-size:40px}.pancs{grid-template-columns:repeat(3,1fr);gap:32px}}
 
-  /* ── LOGO CONCEPT ── */
-  .logo-section { margin-top: 2.5rem; }
-  .logo-variants { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-  .logo-variant {
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem 1rem;
-    gap: 1rem;
-    min-height: 180px;
-  }
-  .logo-variant.light { background: var(--off-white); border: 1px solid var(--linen); }
-  .logo-variant.dark  { background: var(--forest); }
-  .logo-variant.earth { background: var(--terracota); }
-  .logo-variant-label { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--warm-gray); }
-  .logo-variant.dark  .logo-variant-label { color: var(--sage); }
-  .logo-variant.earth .logo-variant-label { color: rgba(255,255,255,.6); }
+/* WHO */
+#who{background:var(--cream);padding:80px 0}
+#who h2{font-size:32px;color:var(--forest);margin-bottom:48px}
+.who-grid{display:grid;gap:16px}
+.who-item{background:#fff;border:1px solid rgba(138,128,112,.15);border-radius:12px;padding:24px;display:flex;gap:16px;align-items:flex-start}
+.who-icon{flex-shrink:0;width:28px;height:28px;color:var(--terracota);margin-top:2px}
+.who-icon svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.4}
+.who-text{font-size:14px;color:var(--warm-gray);line-height:1.5}
+@media(min-width:768px){#who{padding:120px 0}#who h2{font-size:40px}.who-grid{grid-template-columns:repeat(2,1fr);gap:20px}}
+@media(min-width:1024px){.who-grid{grid-template-columns:repeat(3,1fr)}}
 
-  .lv-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
-    font-weight: 300;
-    letter-spacing: .05em;
-  }
-  .lv-name em { font-style: italic; }
-  .logo-variant.light .lv-name { color: var(--forest); }
-  .logo-variant.light .lv-name em { color: var(--terracota); }
-  .logo-variant.dark  .lv-name { color: var(--cream); }
-  .logo-variant.dark  .lv-name em { color: var(--clay); }
-  .logo-variant.earth .lv-name { color: #fff; }
-  .logo-variant.earth .lv-name em { color: var(--sand); }
+/* HOW */
+#how{background:var(--charcoal);padding:80px 0}
+#how h2{font-size:30px;color:var(--cream);margin-bottom:48px;text-align:center}
+.steps{display:grid;gap:32px;margin-bottom:64px}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:48px;color:var(--moss);line-height:1;margin-bottom:8px}
+.step-title{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--cream);margin-bottom:8px;font-weight:500}
+.step-body{font-size:13px;color:var(--mist);line-height:1.6}
+.how-extra{display:grid;gap:40px;border-top:1px solid rgba(184,206,175,.15);padding-top:40px}
+.extra-title{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--clay);margin-bottom:12px}
+.extra-body{font-size:14px;color:var(--mist);line-height:1.6}
+@media(min-width:768px){#how{padding:100px 0}#how h2{font-size:36px}.steps{grid-template-columns:repeat(2,1fr);gap:40px}.how-extra{grid-template-columns:repeat(2,1fr);gap:64px}}
+@media(min-width:1024px){.steps{grid-template-columns:repeat(4,1fr)}}
 
-  .lv-rule { width: 32px; height: 1px; }
-  .logo-variant.light .lv-rule { background: var(--mist); }
-  .logo-variant.dark  .lv-rule { background: var(--moss); }
-  .logo-variant.earth .lv-rule { background: rgba(255,255,255,.3); }
+/* TESTIMONIALS */
+#testimonials{background:var(--cream);padding:80px 0;text-align:center}
+.testi{max-width:720px;margin:0 auto 48px}
+.testi:last-child{margin-bottom:0}
+.testi-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--forest);line-height:1.4;margin-bottom:12px}
+.testi-attr{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--warm-gray)}
+.placeholder-note{font-size:11px;color:var(--warm-gray);font-style:italic;margin-top:48px;opacity:.7}
+@media(min-width:768px){#testimonials{padding:100px 0}.testi-quote{font-size:22px}}
 
-  .lv-sub {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 8.5px;
-    font-weight: 400;
-    letter-spacing: .22em;
-    text-transform: uppercase;
-  }
-  .logo-variant.light .lv-sub { color: var(--warm-gray); }
-  .logo-variant.dark  .lv-sub { color: var(--mist); }
-  .logo-variant.earth .lv-sub { color: rgba(255,255,255,.75); }
+/* CONTACT */
+#contact{background:var(--forest);padding:80px 0;text-align:center}
+#contact h2{font-size:40px;color:var(--cream);margin-bottom:16px}
+.contact-sub{font-size:15px;color:var(--mist);max-width:480px;margin:0 auto 36px}
+.contact-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:32px}
+.btn-whatsapp{background:#25D366;color:#fff;padding:13px 26px;border-radius:4px;font-size:14px;font-weight:500}
+.btn-email{background:transparent;border:1px solid var(--sage);color:var(--cream);padding:13px 26px;border-radius:4px;font-size:14px}
+.reassure{font-size:12px;color:var(--sage);margin-bottom:40px}
+.contact-foot{font-size:11px;color:var(--sage);letter-spacing:.02em}
+@media(min-width:768px){#contact{padding:120px 0}#contact h2{font-size:52px}}
 
-  /* ── LOGO MARK ── */
-  .logomark-section { margin-top: 2rem; }
-  .logomark-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 1rem; }
-  .logomark-card {
-    border-radius: 12px;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-  .logomark-card.lm-light { background: var(--cream); }
-  .logomark-card.lm-dark  { background: var(--forest); }
-  .logomark-desc {
-    font-size: 12px;
-    font-weight: 300;
-    color: var(--warm-gray);
-    text-align: center;
-    line-height: 1.6;
-    max-width: 240px;
-  }
-  .logomark-card.lm-dark .logomark-desc { color: var(--mist); }
+/* FOOTER */
+footer{background:var(--charcoal);padding:56px 0 24px;color:var(--mist)}
+.footer-grid{display:grid;gap:40px;margin-bottom:48px}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--cream);margin-bottom:8px}
+.footer-tag{font-size:13px;color:var(--sage)}
+.footer-links{display:flex;flex-direction:column;gap:10px}
+.footer-links a,.footer-social a{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--mist);transition:color .2s}
+.footer-links a:hover,.footer-social a:hover{color:var(--cream)}
+.footer-social{display:flex;gap:20px}
+.footer-bottom{border-top:1px solid rgba(184,206,175,.1);padding-top:20px;font-size:11px;color:var(--warm-gray);text-align:center}
+@media(min-width:768px){.footer-grid{grid-template-columns:1.5fr 1fr 1fr}}
 
-  /* ── TONE OF VOICE ── */
-  .tone-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2rem; }
-  .tone-card {
-    border-radius: 12px;
-    padding: 1.5rem;
-  }
-  .tone-card.yes { background: var(--forest); }
-  .tone-card.no  { background: var(--cream); }
-  .tone-title {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: .15em;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-  }
-  .tone-card.yes .tone-title { color: var(--sage); }
-  .tone-card.no  .tone-title { color: var(--terracota); }
-  .tone-item {
-    font-size: 13px;
-    font-weight: 300;
-    line-height: 1.6;
-    margin-bottom: .5rem;
-    padding-left: 1rem;
-    position: relative;
-  }
-  .tone-item::before { content: '—'; position: absolute; left: 0; }
-  .tone-card.yes .tone-item { color: var(--mist); }
-  .tone-card.no  .tone-item { color: var(--warm-gray); }
-
-  /* ── CAPTION EXAMPLES ── */
-  .caption-examples { margin-top: 2rem; }
-  .caption-card {
-    background: var(--cream);
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin-bottom: .75rem;
-    border-left: 3px solid var(--moss);
-  }
-  .caption-context { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--sage); margin-bottom: .5rem; }
-  .caption-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 17px;
-    font-weight: 400;
-    color: var(--forest);
-    line-height: 1.5;
-    font-style: italic;
-  }
-  .caption-tags { font-size: 11px; color: var(--sage); margin-top: .5rem; }
-
-  /* ── DO / DON'T VISUALS ── */
-  .visual-dont { margin-top: 2rem; }
-  .dont-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1rem; }
-  .dont-card {
-    border-radius: 12px;
-    padding: 1.5rem;
-    border: 1px solid var(--linen);
-  }
-  .dont-header { display: flex; align-items: center; gap: 8px; margin-bottom: 1rem; }
-  .dont-dot { width: 10px; height: 10px; border-radius: 50%; }
-  .dont-dot.green { background: var(--moss); }
-  .dont-dot.red   { background: var(--terracota); }
-  .dont-label { font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--warm-gray); }
-  .dont-item { font-size: 13px; color: var(--warm-gray); margin-bottom: .4rem; font-weight: 300; padding-left: 12px; position: relative; }
-  .dont-item::before { content: '·'; position: absolute; left: 0; }
-
-  /* ── APPLICATIONS ── */
-  .app-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2rem; }
-  .app-card {
-    border-radius: 16px;
-    overflow: hidden;
-  }
-  .app-preview {
-    min-height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-  }
-  .app-label {
-    padding: .75rem 1rem;
-    background: white;
-    font-size: 11px;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    color: var(--warm-gray);
-    font-weight: 500;
-  }
-
-  /* Instagram bio mockup */
-  .ig-bio {
-    background: #fafafa;
-    border-radius: 8px;
-    padding: 1.25rem;
-    width: 100%;
-    font-family: -apple-system, sans-serif;
-    border: 1px solid #efefef;
-  }
-  .ig-avatar { width: 54px; height: 54px; border-radius: 50%; background: var(--forest); display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
-  .ig-handle { font-size: 14px; font-weight: 600; color: #262626; margin-bottom: 2px; }
-  .ig-name { font-size: 13px; font-weight: 500; color: #262626; margin-bottom: 4px; }
-  .ig-desc { font-size: 12px; color: #262626; line-height: 1.5; }
-  .ig-link { font-size: 12px; color: #00376b; margin-top: 4px; }
-
-  /* Business card mockup */
-  .biz-card {
-    width: 100%;
-    min-height: 120px;
-    background: var(--forest);
-    border-radius: 10px;
-    padding: 1.25rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .biz-brand { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 300; color: var(--cream); letter-spacing: .04em; }
-  .biz-brand em { font-style: italic; color: var(--clay); }
-  .biz-details { font-size: 10px; font-weight: 300; color: var(--mist); letter-spacing: .06em; line-height: 1.8; }
-  .biz-tagline { font-size: 8px; letter-spacing: .18em; text-transform: uppercase; color: var(--sage); }
-
-  /* Footer */
-  .footer {
-    background: var(--forest);
-    padding: 3rem 2rem;
-    text-align: center;
-  }
-  .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; color: var(--cream); letter-spacing: .04em; }
-  .footer-brand em { font-style: italic; color: var(--clay); }
-  .footer-sub { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--sage); margin-top: .5rem; }
-  .footer-meta { margin-top: 2rem; font-size: 11px; color: var(--moss); letter-spacing: .06em; }
-
-  /* Responsive */
-  @media (max-width: 640px) {
-    .pillars { grid-template-columns: 1fr; }
-    .palette-grid { grid-template-columns: repeat(2, 1fr); }
-    .logo-variants { grid-template-columns: 1fr; }
-    .tone-grid { grid-template-columns: 1fr; }
-    .app-grid { grid-template-columns: 1fr; }
-    .logomark-grid { grid-template-columns: 1fr; }
-    .palette-rule { grid-template-columns: 1fr; }
-    .dont-grid { grid-template-columns: 1fr; }
-  }
+/* FLOATING WHATSAPP */
+.whatsapp-float{position:fixed;bottom:20px;right:20px;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:900;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.whatsapp-float svg{width:26px;height:26px;fill:#fff}
 </style>
 </head>
 <body>
 
-<!-- ═══════════ COVER ═══════════ -->
-<div class="cover">
-  <div class="cover-inner">
-    <p class="cover-eyebrow">Brand Identity Briefing — 2025</p>
-    <div class="logo-lockup">
-      <span class="brand-name">Raiz <em>Viva</em></span>
-      <p class="brand-tagline">Grow deep &nbsp;·&nbsp; Live present</p>
+<nav id="nav">
+  <div class="container nav-inner">
+    <a href="#hero" class="brand">
+      <svg viewBox="0 0 24 24"><path d="M12 3v9M12 12c-3.5 0-6 2.5-7 6M12 12c3.5 0 6 2.5 7 6M7 18c0 2.5 2.2 4.5 5 4.5s5-2 5-4.5M9 9l-3-3M15 9l3-3"/></svg>
+      Raiz Viva
+    </a>
+    <div class="nav-links">
+      <a href="#experiences">Experiences</a>
+      <a href="#farm">The Farm</a>
+      <a href="#contact">Contact</a>
     </div>
-    <p class="cover-meta">Permacultura · Agrofloresta · Bioconstrução · Mata Atlântica, ES, Brasil</p>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu"><span></span><span></span></button>
   </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#experiences">Experiences</a>
+  <a href="#farm">The Farm</a>
+  <a href="#philosophy">Philosophy</a>
+  <a href="#contact">Contact</a>
+  <a href="https://wa.me/5527999999999" class="whatsapp-mobile">WhatsApp</a>
 </div>
 
-<!-- ═══════════ BRAND ESSENCE ═══════════ -->
-<div class="section">
-  <p class="section-label">01 — Essência da marca</p>
-  <h2 class="section-title">O que <em>Raiz Viva</em> representa</h2>
-  <p class="section-body">
-    Raiz Viva não é uma pousada rural. É um lugar onde a floresta é a professora e o silêncio é o primeiro ato de transformação. A identidade visual deve comunicar uma única coisa com absoluta clareza: <em>aqui a vida é real, lenta e profunda</em>.
-  </p>
-  <p class="section-body" style="margin-top:1rem">
-    A marca se dirige a estrangeiros e brasileiros que cansaram do performático e buscam o essencial — e por isso a identidade visual nunca pode parecer fabricada, polida demais ou "eco-turismo corporativo". Deve sentir como terra entre os dedos: orgânica, honesta, bonita sem esforço.
-  </p>
+<a href="https://wa.me/5527999999999" class="whatsapp-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.3 4 14.9c0 2.1.6 4.1 1.6 5.8L4 28l7.5-1.9c1.6.9 3.5 1.4 5.5 1.4 6.6 0 12-5.3 12-11.9S22.6 3 16 3zm0 21.4c-1.7 0-3.3-.4-4.7-1.2l-.3-.2-4.4 1.1 1.2-4.3-.2-.4c-.8-1.4-1.3-3-1.3-4.7 0-5.2 4.3-9.4 9.7-9.4s9.7 4.2 9.7 9.4-4.3 9.7-9.7 9.7zm5.3-7.1c-.3-.1-1.7-.8-2-1-.3-.1-.5-.2-.7.2s-.8 1-.9 1.2c-.2.2-.3.2-.6.1s-1.2-.4-2.3-1.4c-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5 0-.2 0-.4-.1-.5-.1-.2-.7-1.7-.9-2.3-.2-.6-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3 0-.1-.2-.5-.3z"/></svg>
+</a>
 
-  <div class="pillars">
-    <div class="pillar">
-      <svg class="pillar-icon" viewBox="0 0 36 36" fill="none">
-        <path d="M18 32V16" stroke="#3B5E3A" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M18 22C18 22 12 20 10 14C14 12 18 16 18 16" stroke="#3B5E3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="#B8CEAF" fill-opacity=".4"/>
-        <path d="M18 19C18 19 24 16 26 10C22 8 18 13 18 13" stroke="#7A9E72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="#B8CEAF" fill-opacity=".3"/>
-        <path d="M18 32C14 32 10 30 10 30" stroke="#3B5E3A" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M18 32C22 32 26 30 26 30" stroke="#7A9E72" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
-      <div class="pillar-name">Enraizamento</div>
-      <div class="pillar-desc">A raiz não é metáfora vaga — é literalmente o que acontece aqui. Mãos na terra, agrofloresta, ciclos reais da natureza. A marca deve transmitir profundidade e permanência.</div>
+<section id="hero">
+  <div class="texture"></div>
+  <div class="hero-content">
+    <div class="eyebrow">Atlantic Forest · Espírito Santo, Brasil</div>
+    <h1>The forest<br><em>teaches.</em></h1>
+    <p class="hero-sub">Three days in the Atlantic Forest. Hands in the soil, food from the trees, walls built from the earth itself.</p>
+    <div class="ctas">
+      <a href="#experiences" class="btn btn-primary">See the experiences</a>
+      <a href="#farm" class="btn btn-secondary">Watch the farm</a>
     </div>
-    <div class="pillar">
-      <svg class="pillar-icon" viewBox="0 0 36 36" fill="none">
-        <circle cx="18" cy="18" r="8" stroke="#B85C38" stroke-width="1.5"/>
-        <path d="M18 6V4M18 32V30M30 18h2M4 18H6" stroke="#B85C38" stroke-width="1.5" stroke-linecap="round"/>
-        <circle cx="18" cy="18" r="3" fill="#D4845A" fill-opacity=".6"/>
-      </svg>
-      <div class="pillar-name">Presença</div>
-      <div class="pillar-desc">O projeto existe para reconectar as pessoas ao presente. A identidade visual deve evocar quietude, ritmo lento, atenção ao detalhe — nunca agitação ou excesso de estímulo.</div>
+  <div class="scroll-indicator"></div>
+</section>
+
+<section id="philosophy" class="reveal">
+  <div class="container">
+    <div class="phil-grid">
+      <div class="phil-quote">You don't visit Raiz Viva. You live it — briefly, but deeply.</div>
+      <div class="phil-text">
+        <p>Raiz Viva is not a retreat center. It's a working farm inside the Atlantic Forest, where we grow food, build with earth, and learn daily from the forest.</p>
+        <p>We host small immersions — never more than eight people — so you work alongside us, not watch from outside.</p>
+        <p>This is not a performance of sustainability. It's slow, physical, sometimes messy work. That's the point.</p>
+      </div>
     </div>
-    <div class="pillar">
-      <svg class="pillar-icon" viewBox="0 0 36 36" fill="none">
-        <path d="M8 28C8 28 12 20 18 18C24 16 28 20 28 20" stroke="#3B5E3A" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M10 16C10 16 8 12 12 8C16 10 16 16 16 16" stroke="#7A9E72" stroke-width="1.5" stroke-linecap="round" fill="#B8CEAF" fill-opacity=".3"/>
-        <path d="M22 14C22 14 26 8 30 10C30 14 26 18 22 18" stroke="#B85C38" stroke-width="1.5" stroke-linecap="round" fill="#E8C99A" fill-opacity=".3"/>
-        <path d="M6 28H30" stroke="#2A2720" stroke-width="1.5" stroke-linecap="round" opacity=".2"/>
-      </svg>
-      <div class="pillar-name">Regeneração</div>
-      <div class="pillar-desc">Tudo aqui cresce, se transforma, se reconstrói. A marca deve transmitir algo em processo — não um produto acabado, mas um organismo vivo em desenvolvimento constante.</div>
+    <div class="divider"></div>
+    <div class="stats">
+      <div class="stat"><div class="stat-num">8 /</div><div class="stat-label">max guests per experience</div></div>
+      <div class="stat"><div class="stat-num">3 /</div><div class="stat-label">days minimum immersion</div></div>
+      <div class="stat"><div class="stat-num">2019 /</div><div class="stat-label">agroforest planted</div></div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- ═══════════ COLOR PALETTE ═══════════ -->
-<div class="section">
-  <p class="section-label">02 — Paleta de cores</p>
-  <h2 class="section-title">Cores que <em>crescem da terra</em></h2>
-  <p class="section-body">A paleta foi construída a partir da Mata Atlântica do Espírito Santo: o verde escuro do dossel, o barro terracota do pau a pique, o bege claro da palha seca e a névoa azul-verde das manhãs úmidas. Nenhuma cor é digital ou fabricada — cada uma existe primeiro na natureza.</p>
-
-  <div class="palette-grid">
-    <div class="swatch-card">
-      <div class="swatch-block" style="background:#1C3A2A"></div>
-      <div class="swatch-info">
-        <div class="swatch-name">Forest Deep</div>
-        <div class="swatch-hex">#1C3A2A</div>
-        <div class="swatch-role">Cor primária. Fundo escuro, texto principal, logo principal.</div>
+<section id="experiences" class="reveal">
+  <div class="container">
+    <div class="eyebrow">What you'll do</div>
+    <h2>Three ways to be here</h2>
+    <div class="exp-grid">
+      <div class="card">
+        <div class="card-price">USD 280</div>
+        <h3>Living the Agroforest</h3>
+        <div class="pill">3 days</div>
+        <p class="card-desc">Walk the food forest, harvest your meals, and learn the principles of regenerative agroforestry in the tropics.</p>
+        <ul class="includes">
+          <li>Daily forest walks and planting</li>
+          <li>Harvest and cook with PANCs</li>
+          <li>Sleep in our forest cabin</li>
+        </ul>
+        <a href="#contact" class="card-cta">Reserve a spot →</a>
       </div>
-    </div>
-    <div class="swatch-card">
-      <div class="swatch-block" style="background:#3B5E3A"></div>
-      <div class="swatch-info">
-        <div class="swatch-name">Moss Green</div>
-        <div class="swatch-hex">#3B5E3A</div>
-        <div class="swatch-role">Verde secundário. Detalhes, ícones, elementos de apoio.</div>
+      <div class="card">
+        <div class="card-price">USD 480</div>
+        <h3>Build with Earth</h3>
+        <div class="pill">5 days</div>
+        <p class="card-desc">Get your hands in the earth. Learn cob, light straw clay, and foundations using recycled tires.</p>
+        <ul class="includes">
+          <li>Mix and build cob walls</li>
+          <li>Natural plaster basics</li>
+          <li>5 days of guided building</li>
+        </ul>
+        <a href="#contact" class="card-cta">Reserve a spot →</a>
       </div>
-    </div>
-    <div class="swatch-card">
-      <div class="swatch-block" style="background:#B85C38"></div>
-      <div class="swatch-info">
-        <div class="swatch-name">Terracota</div>
-        <div class="swatch-hex">#B85C38</div>
-        <div class="swatch-role">Acento principal. Nome "Viva", destaques, calls-to-action.</div>
-      </div>
-    </div>
-    <div class="swatch-card">
-      <div class="swatch-block" style="background:#F2EDE3"></div>
-      <div class="swatch-info">
-        <div class="swatch-name">Linen Cream</div>
-        <div class="swatch-hex">#F2EDE3</div>
-        <div class="swatch-role">Fundo claro, texto sobre fundos escuros.</div>
+      <div class="card">
+        <div class="badge">Most complete</div>
+        <div class="card-price">USD 900</div>
+        <h3>The Full Forest</h3>
+        <div class="pill">7 days</div>
+        <p class="card-desc">Live the full cycle: plant, build, harvest, cook. The deepest immersion we offer.</p>
+        <ul class="includes">
+          <li>Everything in Agroforest + Building</li>
+          <li>Fermentation workshop</li>
+          <li>One-on-one design time</li>
+        </ul>
+        <a href="#contact" class="card-cta">Reserve a spot →</a>
       </div>
     </div>
   </div>
+</section>
 
-  <div class="palette-secondary">
-    <div class="palette-grid" style="grid-template-columns:repeat(3,1fr)">
-      <div class="swatch-card">
-        <div class="swatch-block" style="background:#7A9E72"></div>
-        <div class="swatch-info">
-          <div class="swatch-name">Sage</div>
-          <div class="swatch-hex">#7A9E72</div>
-          <div class="swatch-role">Verde médio. Texto secundário sobre fundos escuros.</div>
-        </div>
+<section id="farm" class="reveal">
+  <div class="container">
+    <div class="farm-grid">
+      <div class="farm-large">Photo: agroforest canopy at sunrise</div>
+      <div class="farm-smalls">
+        <div class="farm-small">Photo: cob wall construction</div>
+        <div class="farm-small">Photo: banana circle harvest</div>
       </div>
-      <div class="swatch-card">
-        <div class="swatch-block" style="background:#D4845A"></div>
-        <div class="swatch-info">
-          <div class="swatch-name">Clay</div>
-          <div class="swatch-hex">#D4845A</div>
-          <div class="swatch-role">Terracota claro. Itálicos do nome, gradações do acento.</div>
-        </div>
+    </div>
+    <div class="farm-facts">
+      <div class="fact">
+        <div class="fact-label">Atlantic Forest</div>
+        <p class="fact-body">Only 12% remains. We are replanting indigenous species alongside food crops to rebuild corridors for jaguars, toucans, and thousands of endemic plants.</p>
       </div>
-      <div class="swatch-card">
-        <div class="swatch-block" style="background:#E8C99A"></div>
-        <div class="swatch-info">
-          <div class="swatch-name">Sand</div>
-          <div class="swatch-hex">#E8C99A</div>
-          <div class="swatch-role">Areia. Fundo alternativo, elementos de calor.</div>
-        </div>
+      <div class="fact">
+        <div class="fact-label">Agroforestry</div>
+        <p class="fact-body">No monoculture. We plant in layers — banana, cacao, inga, hardwood — so the forest feeds us while it grows.</p>
+      </div>
+      <div class="fact">
+        <div class="fact-label">Natural Building</div>
+        <p class="fact-body">Walls from the site: clay, sand, fiber. Foundations from reclaimed tires. Roofs that breathe. Built to last with minimal impact.</p>
       </div>
     </div>
   </div>
+</section>
 
-  <div class="palette-rule">
-    <div class="rule-item">
-      <div class="rule-label">Combinação principal</div>
-      <div class="rule-swatch-row">
-        <div class="rule-dot" style="background:#1C3A2A"></div>
-        <span class="rule-plus">+</span>
-        <div class="rule-dot" style="background:#F2EDE3"></div>
-        <span class="rule-plus">+</span>
-        <div class="rule-dot" style="background:#B85C38"></div>
-      </div>
-      <div class="rule-name">Forest · Linen · Terracota</div>
-    </div>
-    <div class="rule-item">
-      <div class="rule-label">Para fundos claros</div>
-      <div class="rule-swatch-row">
-        <div class="rule-dot" style="background:#F2EDE3"></div>
-        <span class="rule-plus">+</span>
-        <div class="rule-dot" style="background:#1C3A2A"></div>
-        <span class="rule-plus">+</span>
-        <div class="rule-dot" style="background:#7A9E72"></div>
-      </div>
-      <div class="rule-name">Cream · Forest · Sage</div>
-    </div>
-    <div class="rule-item">
-      <div class="rule-label">Nunca usar</div>
-      <div class="rule-swatch-row">
-        <div class="rule-dot" style="background:#4CAF50"></div>
-        <span class="rule-plus">·</span>
-        <div class="rule-dot" style="background:#FFFFFF"></div>
-        <span class="rule-plus">·</span>
-        <div class="rule-dot" style="background:#000000"></div>
-      </div>
-      <div class="rule-name">Verde limão · Branco puro · Preto puro</div>
+<section id="wildfood" class="reveal">
+  <div class="container">
+    <div class="eyebrow">From the forest to the table</div>
+    <h2>You'll eat things you can't find on any menu.</h2>
+    <p class="wild-intro">We cook almost entirely from what we grow. That means PANCs — Non-Conventional Edible Plants — wild greens, roots, and fruits that have fed this forest for generations.</p>
+    <div class="pancs">
+      <div class="panc"><div class="panc-name">Ora-pro-nóbis</div><div class="panc-desc">High-protein climbing cactus, sautéed with garlic</div></div>
+      <div class="panc"><div class="panc-name">Taioba</div><div class="panc-desc">Large leaf, cooked like collards</div></div>
+      <div class="panc"><div class="panc-name">Capuchinha</div><div class="panc-desc">Peppery flowers and leaves</div></div>
+      <div class="panc"><div class="panc-name">Beldroega</div><div class="panc-desc">Succulent, lemony ground cover</div></div>
+      <div class="panc"><div class="panc-name">Serralha</div><div class="panc-desc">Wild bitter green, excellent raw</div></div>
+      <div class="panc"><div class="panc-name">Caruru</div><div class="panc-desc">Amaranth cousin, rich in iron</div></div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- ═══════════ TYPOGRAPHY ═══════════ -->
-<div class="section">
-  <p class="section-label">03 — Tipografia</p>
-  <h2 class="section-title">Duas vozes, <em>uma alma</em></h2>
-  <p class="section-body">O sistema tipográfico usa duas famílias que se complementam: uma serif humanista para o nome e títulos — evocando o orgânico, o literário, o profundo — e uma sans-serif leve para textos corridos, legendas e interface.</p>
-
-  <div class="type-section">
-    <div class="type-family">
-      <div class="type-meta">
-        <div class="type-info">
-          <div class="type-family-name">Cormorant Garamond</div>
-          <div class="type-use">Títulos, nome da marca, citações, destaques editoriais</div>
-        </div>
-        <span class="type-badge">Display</span>
+<section id="who" class="reveal">
+  <div class="container">
+    <h2>This is for you if—</h2>
+    <div class="who-grid">
+      <div class="who-item">
+        <div class="who-icon"><svg viewBox="0 0 24 24"><path d="M5 21c7-3 10-7 11-13 2 4 1 8-3 11-2 1.5-5 2.5-8 2z"/></svg></div>
+        <div class="who-text">You want your hands in soil, not just your phone in your hand.</div>
       </div>
-      <div class="type-specimen-display">A floresta<br><em>não tem pressa.</em></div>
-      <div class="type-scale">
-        <div class="scale-row">
-          <span class="scale-label">Display</span>
-          <span style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:#1C3A2A">Raiz Viva</span>
-        </div>
-        <div class="scale-row">
-          <span class="scale-label">H1</span>
-          <span style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:#1C3A2A">Experiências de agrofloresta</span>
-        </div>
-        <div class="scale-row">
-          <span class="scale-label">H2</span>
-          <span style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;font-style:italic;color:#B85C38">Grow deep. Live present.</span>
-        </div>
-        <div class="scale-row">
-          <span class="scale-label">Quote</span>
-          <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;font-style:italic;color:#3B5E3A">"Aqui o tempo tem outro ritmo."</span>
-        </div>
+      <div class="who-item">
+        <div class="who-icon"><svg viewBox="0 0 24 24"><path d="M12 5v6l4 2M6 13c0 3 2 5 4 5 1 0 2-.5 3-1.5M18 11v2c0 3-3 6-6 6"/></svg></div>
+        <div class="who-text">You care where your food comes from and want to harvest it yourself.</div>
       </div>
-    </div>
-
-    <div class="type-family">
-      <div class="type-meta">
-        <div class="type-info">
-          <div class="type-family-name">DM Sans</div>
-          <div class="type-use">Corpo de texto, legendas, tags, UI, legendas de Instagram</div>
-        </div>
-        <span class="type-badge" style="background:var(--terracota)">Body</span>
+      <div class="who-item">
+        <div class="who-icon"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-7h-4v7H4a1 1 0 0 1-1-1v-9z"/></svg></div>
+        <div class="who-text">You believe good building starts with earth, not concrete.</div>
       </div>
-      <div class="type-specimen-body">Três dias imerso na agrofloresta da Mata Atlântica. Colheita, culinária com plantas nativas, bioconstrução com as próprias mãos. Uma experiência que fica.</div>
-      <div class="type-scale">
-        <div class="scale-row">
-          <span class="scale-label">Body 16</span>
-          <span style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:300;color:#2A2720">Venha viver a floresta por dentro.</span>
-        </div>
-        <div class="scale-row">
-          <span class="scale-label">Caption 13</span>
-          <span style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:300;color:#8A8070">Imersão agrofloresta · 3 dias · máx. 8 pessoas</span>
-        </div>
-        <div class="scale-row">
-          <span class="scale-label">Label 10</span>
-          <span style="font-family:'DM Sans',sans-serif;font-size:10px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:#7A9E72">PERMACULTURA · MATA ATLÂNTICA · ES, BRASIL</span>
-        </div>
+      <div class="who-item">
+        <div class="who-icon"><svg viewBox="0 0 24 24"><path d="M4 7h6v2H4zM4 11h10v2H4zM4 15h6v2H4zM17 7l3 5-3 5"/></svg></div>
+        <div class="who-text">You'd rather learn by doing than by watching a slideshow.</div>
+      </div>
+      <div class="who-item">
+        <div class="who-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M5 19l3-3M16 8l3-3"/></svg></div>
+        <div class="who-text">You're traveling slow through Brazil and want depth, not a tour.</div>
+      </div>
+      <div class="who-item">
+        <div class="who-icon"><svg viewBox="0 0 24 24"><path d="M12 3c-3 4-7 5-9 6 3 1 7 2 9 6 2-4 6-5 9-6-2-1-6-2-9-6zM12 15v6"/></svg></div>
+        <div class="who-text">You want to support Atlantic Forest regeneration directly.</div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- ═══════════ LOGO ═══════════ -->
-<div class="section">
-  <p class="section-label">04 — Sistema de logo</p>
-  <h2 class="section-title">O <em>signo</em> da raiz</h2>
-  <p class="section-body">O logo é construído em torno do nome tipográfico, onde "Raiz" âncora em peso regular e "Viva" em itálico terracota evoca o movimento, o orgânico, o que pulsa. O símbolo — um sistema de raízes estilizado com folha emergente — funciona como marca standalone para avatares, selos e aplicações reduzidas.</p>
-
-  <div class="logo-section">
-    <p style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--sage);margin-bottom:.75rem;font-weight:500">Variações de cor</p>
-    <div class="logo-variants">
-      <div class="logo-variant light">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-          <path d="M16 28V14" stroke="#1C3A2A" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M16 20C16 20 10 18 8 11C12 9 16 14 16 14" stroke="#1C3A2A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M16 17C16 17 22 14 24 7C20 5 16 10 16 10" stroke="#3B5E3A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M16 28C13 28 9 26.5 9 26.5" stroke="#1C3A2A" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M16 28C19 28 23 26.5 23 26.5" stroke="#B85C38" stroke-width="1.2" stroke-linecap="round"/>
-        </svg>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
-          <div class="lv-rule"></div>
-          <span class="lv-name">Raiz <em>Viva</em></span>
-          <div class="lv-rule"></div>
-          <span class="lv-sub">Permaculture · Brasil</span>
-        </div>
-        <span class="logo-variant-label">Fundo claro</span>
+<section id="how" class="reveal">
+  <div class="container">
+    <h2>Simple to get here. Hard to leave.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-title">Choose dates</div>
+        <div class="step-body">Message us first. We host year-round, dry season May–Sept is ideal for building.</div>
       </div>
-      <div class="logo-variant dark">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-          <path d="M16 28V14" stroke="#B8CEAF" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M16 20C16 20 10 18 8 11C12 9 16 14 16 14" stroke="#B8CEAF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M16 17C16 17 22 14 24 7C20 5 16 10 16 10" stroke="#7A9E72" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M16 28C13 28 9 26.5 9 26.5" stroke="#B8CEAF" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M16 28C19 28 23 26.5 23 26.5" stroke="#D4845A" stroke-width="1.2" stroke-linecap="round"/>
-        </svg>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
-          <div class="lv-rule"></div>
-          <span class="lv-name">Raiz <em>Viva</em></span>
-          <div class="lv-rule"></div>
-          <span class="lv-sub">Permaculture · Brasil</span>
-        </div>
-        <span class="logo-variant-label">Fundo escuro</span>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-title">Get here</div>
+        <div class="step-body">Fly to Vitória (VIX). We pick you up. 2.5 hour drive into the mountains.</div>
       </div>
-      <div class="logo-variant earth">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-          <path d="M16 28V14" stroke="rgba(255,255,255,.9)" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M16 20C16 20 10 18 8 11C12 9 16 14 16 14" stroke="rgba(255,255,255,.9)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M16 17C16 17 22 14 24 7C20 5 16 10 16 10" stroke="rgba(255,255,255,.7)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M16 28C13 28 9 26.5 9 26.5" stroke="rgba(255,255,255,.8)" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M16 28C19 28 23 26.5 23 26.5" stroke="#E8C99A" stroke-width="1.2" stroke-linecap="round"/>
-        </svg>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
-          <div class="lv-rule"></div>
-          <span class="lv-name">Raiz <em>Viva</em></span>
-          <div class="lv-rule"></div>
-          <span class="lv-sub">Permaculture · Brasil</span>
-        </div>
-        <span class="logo-variant-label">Terracota</span>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-title">Live here</div>
+        <div class="step-body">Private room in earth-built cabin. All meals included. Forest shower, compost toilet.</div>
       </div>
-    </div>
-
-    <div class="logomark-section">
-      <p style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--sage);margin-bottom:.75rem;font-weight:500">Símbolo — uso standalone</p>
-      <div class="logomark-grid">
-        <div class="logomark-card lm-light">
-          <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-            <path d="M40 70V34" stroke="#1C3A2A" stroke-width="2" stroke-linecap="round"/>
-            <path d="M40 50C40 50 26 46 22 30C30 26 40 36 40 36" stroke="#1C3A2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="#B8CEAF" fill-opacity=".35"/>
-            <path d="M40 42C40 42 54 36 58 20C50 16 40 28 40 28" stroke="#3B5E3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="#7A9E72" fill-opacity=".25"/>
-            <path d="M40 70C34 70 24 67 24 67" stroke="#1C3A2A" stroke-width="2" stroke-linecap="round"/>
-            <path d="M40 70C46 70 56 67 56 67" stroke="#B85C38" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="40" cy="18" r="5" fill="#B85C38" fill-opacity=".2" stroke="#B85C38" stroke-width="1.5"/>
-            <circle cx="40" cy="18" r="2" fill="#B85C38"/>
-          </svg>
-          <div class="logomark-desc">Para usar em avatares do Instagram, favicons e selos. O ponto terracota no topo representa a semente — origem de tudo.</div>
-        </div>
-        <div class="logomark-card lm-dark">
-          <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-            <path d="M40 70V34" stroke="#B8CEAF" stroke-width="2" stroke-linecap="round"/>
-            <path d="M40 50C40 50 26 46 22 30C30 26 40 36 40 36" stroke="#B8CEAF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="#3B5E3A" fill-opacity=".5"/>
-            <path d="M40 42C40 42 54 36 58 20C50 16 40 28 40 28" stroke="#7A9E72" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="#3B5E3A" fill-opacity=".35"/>
-            <path d="M40 70C34 70 24 67 24 67" stroke="#B8CEAF" stroke-width="2" stroke-linecap="round"/>
-            <path d="M40 70C46 70 56 67 56 67" stroke="#D4845A" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="40" cy="18" r="5" fill="#B85C38" fill-opacity=".3" stroke="#D4845A" stroke-width="1.5"/>
-            <circle cx="40" cy="18" r="2" fill="#D4845A"/>
-          </svg>
-          <div class="logomark-desc" style="color:var(--mist)">Versão negativa para fundo escuro. Usar em produtos, bordados em roupas de trabalho e materiais impressos escuros.</div>
-        </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-title">Leave changed</div>
+        <div class="step-body">Not as a tourist, but with skills for your own garden or build.</div>
+      </div>
+    <div class="how-extra">
+      <div>
+        <div class="extra-title">Where is it?</div>
+        <p class="extra-body">Santa Teresa region, Espírito Santo, 800m elevation in the Atlantic Forest. Remote, off-grid, full phone signal.</p>
+      </div>
+      <div>
+        <div class="extra-title">What do I need to bring?</div>
+        <p class="extra-body">Boots, headlamp, work clothes. We provide bedding, tools, and meals. Bring curiosity, we handle the rest.</p>
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- ═══════════ TONE OF VOICE ═══════════ -->
-<div class="section">
-  <p class="section-label">05 — Tom de voz</p>
-  <h2 class="section-title">Como <em>Raiz Viva</em> fala</h2>
-  <p class="section-body">A voz da marca é a de alguém que vive o que propõe — não um produto que vende, mas uma pessoa que convida. Íntima, poética, direta. Nunca coach, nunca corporativa, nunca eco-turismo de manual.</p>
-
-  <div class="tone-grid">
-    <div class="tone-card yes">
-      <div class="tone-title">A marca fala assim</div>
-      <div class="tone-item">Íntima — como uma carta de um amigo</div>
-      <div class="tone-item">Poética sem ser hermética</div>
-      <div class="tone-item">Específica — "abacate colhido às 6h" não "frutas frescas"</div>
-      <div class="tone-item">Lenta — frases curtas com espaço para respirar</div>
-      <div class="tone-item">Honesta sobre o processo — imperfeição é conteúdo</div>
-      <div class="tone-item">Bilíngue quando o conteúdo for para estrangeiros</div>
+<section id="testimonials" class="reveal">
+  <div class="container">
+    <div class="testi">
+      <p class="testi-quote">"I came for three days. Stayed seven. I learned more about soil than in three years of university."</p>
+      <div class="testi-attr">Marco A., Italy, 2024</div>
     </div>
-    <div class="tone-card no">
-      <div class="tone-title">A marca nunca fala assim</div>
-      <div class="tone-item">Linguagem de coach: "transforme sua vida em 3 dias"</div>
-      <div class="tone-item">Eco-corporativo: "sustentabilidade como valor central"</div>
-      <div class="tone-item">Exclamações e emojis em excesso no feed principal</div>
-      <div class="tone-item">Genérico: "experiência única e inesquecível"</div>
-      <div class="tone-item">Jargão de marketing: "conteúdo de valor"</div>
-      <div class="tone-item">Urgência falsa: "vagas limitadas!" sem ser verdade</div>
+    <div class="testi">
+      <p class="testi-quote">"We built a wall. We planted 40 trees. My hands still remember the clay."</p>
+      <div class="testi-attr">Sarah W., Netherlands, 2024</div>
     </div>
+    <div class="testi">
+      <p class="testi-quote">"Not a retreat. Real work. Real food. Real people. I'll be back."</p>
+      <div class="testi-attr">James K., Australia, 2023</div>
+    </div>
+    <div class="placeholder-note">[PLACEHOLDER — replace with real testimonials]</div>
   </div>
+</section>
 
-  <div class="caption-examples">
-    <p style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--sage);margin-bottom:1rem;font-weight:500">Exemplos de legenda — tom aplicado</p>
-
-    <div class="caption-card">
-      <div class="caption-context">Reel — pássaro no comedouro</div>
-      <div class="caption-text">"Every morning, this one shows up first. Before the coffee, before the work, before us — the forest is already alive."</div>
-      <div class="caption-tags">#atlanticforest #permaculture #morningroutine #raizvivaforest</div>
+<section id="contact" class="reveal">
+  <div class="container">
+    <h2>Ready to come?</h2>
+    <p class="contact-sub">We keep groups small. Message us on WhatsApp with your dates and which experience — we'll reply within a day.</p>
+    <div class="contact-btns">
+      <a href="https://wa.me/5527999999999" class="btn-whatsapp">Message on WhatsApp</a>
+      <a href="mailto:hello@raizvivaforest.com" class="btn-email">Send an email</a>
     </div>
-
-    <div class="caption-card" style="border-left-color:var(--terracota)">
-      <div class="caption-context">Carrossel — estrutura de pneus (bioconstrução)</div>
-      <div class="caption-text">"Construir com o que tem. Essa parede começou com 80 pneus velhos, terra do próprio terreno e muita água. Vai durar mais do que qualquer tijolo industrializado."</div>
-      <div class="caption-tags">#bioconstrução #naturalbuilding #earthship #construçãonatural</div>
-    </div>
-
-    <div class="caption-card" style="border-left-color:var(--clay)">
-      <div class="caption-context">Post convite — imersão agrofloresta</div>
-      <div class="caption-text">"Three days. No Wi-Fi. Your hands in the soil, your feet on the roots, your table set by the forest. DM to join the next immersion."</div>
-      <div class="caption-tags">#agroforestry #permacultureimmersion #brazil #slowliving #raizvivaexperience</div>
-    </div>
+    <p class="reassure">No booking platforms. Just direct conversation. Portuguese, English, and Spanish spoken.</p>
+    <p class="contact-foot">Raiz Viva · Mata Atlântica, Espírito Santo, Brasil · @raizvivaforest</p>
   </div>
-</div>
+</section>
 
-<!-- ═══════════ DO / DON'T ═══════════ -->
-<div class="section">
-  <p class="section-label">06 — Regras visuais</p>
-  <h2 class="section-title">O que <em>preservar</em> e o que evitar</h2>
-
-  <div class="dont-grid">
-    <div class="dont-card">
-      <div class="dont-header">
-        <div class="dont-dot green"></div>
-        <span class="dont-label">Sempre fazer</span>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Raiz Viva</div>
+        <div class="footer-tag">Living root in the Atlantic Forest</div>
       </div>
-      <div class="dont-item">Usar a fonte Cormorant Garamond para o nome da marca</div>
-      <div class="dont-item">Manter "Viva" em itálico e sempre em terracota (#B85C38)</div>
-      <div class="dont-item">Zona de proteção ao redor do logo: espaço mínimo = altura da letra "R"</div>
-      <div class="dont-item">Fotografias com tom quente, levemente subexpostas — floresta tem sombra</div>
-      <div class="dont-item">Fundo das fotos: sempre vegetação, terra ou textura natural</div>
-      <div class="dont-item">Espaços em branco generosos nos layouts — o silêncio é visual também</div>
-    </div>
-    <div class="dont-card">
-      <div class="dont-header">
-        <div class="dont-dot red"></div>
-        <span class="dont-label">Nunca fazer</span>
+      <div class="footer-links">
+        <a href="#experiences">Experiences</a>
+        <a href="#farm">The Farm</a>
+        <a href="#philosophy">Philosophy</a>
+        <a href="#contact">Contact</a>
       </div>
-      <div class="dont-item">Distorcer ou rotacionar o logo</div>
-      <div class="dont-item">Usar verde brilhante (#00FF00, #4CAF50) — soa artificial</div>
-      <div class="dont-item">Filtros com saturação alta ou preset "vintage laranjado"</div>
-      <div class="dont-item">Fotos com fundo branco ou estúdio — tudo deve vir da natureza</div>
-      <div class="dont-item">Tipografia decorativa em substituição ao Cormorant</div>
-      <div class="dont-item">Logos de parceiros sobrepostos ao símbolo da raiz</div>
-    </div>
+      <div class="footer-social">
+        <a href="https://instagram.com/raizvivaforest" target="_blank">Instagram</a>
+        <a href="https://wa.me/5527999999999">WhatsApp</a>
+        <a href="mailto:hello@raizvivaforest.com">Email</a>
+      </div>
+    <div class="footer-bottom">© 2025 Raiz Viva · Built on the Atlantic Forest</div>
   </div>
-</div>
+</footer>
 
-<!-- ═══════════ APPLICATIONS ═══════════ -->
-<div class="section">
-  <p class="section-label">07 — Aplicações</p>
-  <h2 class="section-title">A marca <em>em uso</em></h2>
+<script>
+const nav = document.getElementById('nav');
+const menuBtn = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
 
-  <div class="app-grid">
-    <div class="app-card">
-      <div class="app-preview" style="background:var(--cream)">
-        <div class="ig-bio">
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
-            <div class="ig-avatar">
-              <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-                <path d="M16 28V14" stroke="#B8CEAF" stroke-width="1.5" stroke-linecap="round"/>
-                <path d="M16 20C16 20 10 18 8 11C12 9 16 14 16 14" stroke="#B8CEAF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M16 17C16 17 22 14 24 7C20 5 16 10 16 10" stroke="#7A9E72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M16 28C13 28 9 26.5 9 26.5" stroke="#B8CEAF" stroke-width="1.5" stroke-linecap="round"/>
-                <path d="M16 28C19 28 23 26.5 23 26.5" stroke="#D4845A" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <div>
-              <div class="ig-handle">@raizvivaforest</div>
-            </div>
-          </div>
-          <div class="ig-name" style="font-family:'Cormorant Garamond',serif;font-size:15px;color:#1C3A2A">Raiz <em style="font-style:italic;color:#B85C38">Viva</em></div>
-          <div class="ig-desc">🌿 Agroforestry + natural building, Mata Atlântica<br>📍 Espírito Santo, Brasil<br>✉️ Immersions · Workshops · Experiences</div>
-          <div class="ig-link">raizvivaforest.com</div>
-        </div>
-      </div>
-      <div class="app-label">Perfil do Instagram</div>
-    </div>
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 20) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
 
-    <div class="app-card">
-      <div class="app-preview" style="background:var(--linen)">
-        <div style="width:100%;max-width:280px">
-          <div class="biz-card">
-            <div>
-              <div style="margin-bottom:12px">
-                <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
-                  <path d="M16 28V14" stroke="#B8CEAF" stroke-width="1.5" stroke-linecap="round"/>
-                  <path d="M16 20C16 20 10 18 8 11C12 9 16 14 16 14" stroke="#B8CEAF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M16 17C16 17 22 14 24 7C20 5 16 10 16 10" stroke="#7A9E72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M16 28C19 28 23 26.5 23 26.5" stroke="#D4845A" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <div class="biz-brand">Raiz <em>Viva</em></div>
-              <div class="biz-tagline" style="margin-top:4px">Grow deep · Live present</div>
-            </div>
-            <div class="biz-details">
-              raizvivaforest.com<br>
-              @raizvivaforest<br>
-              Mata Atlântica · ES, Brasil
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="app-label">Cartão de visita</div>
-    </div>
+menuBtn.addEventListener('click', () => {
+  const isOpen = mobileMenu.classList.toggle('open');
+  document.body.classList.toggle('no-scroll', isOpen);
+  menuBtn.classList.toggle('active');
+});
 
-    <div class="app-card">
-      <div class="app-preview" style="background:var(--forest);flex-direction:column;gap:1rem">
-        <div style="font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sage)">Immersão · 3 dias</div>
-        <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--cream);text-align:center;line-height:1.2">Living the<br><em style="font-style:italic;color:var(--clay)">agroforest</em></div>
-        <div style="width:32px;height:1px;background:var(--moss)"></div>
-        <div style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:300;color:var(--mist);text-align:center;line-height:1.6">Harvest · Forage · Build · Rest<br>Máx. 8 pessoas · USD 280</div>
-        <div style="background:var(--terracota);padding:8px 20px;border-radius:4px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;color:var(--cream)">Reserve your spot</div>
-      </div>
-      <div class="app-label">Post promocional</div>
-    </div>
+document.querySelectorAll('#mobileMenu a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    document.body.classList.remove('no-scroll');
+  });
+});
 
-    <div class="app-card">
-      <div class="app-preview" style="background:var(--sand);flex-direction:column;gap:.75rem;align-items:flex-start;padding:1.5rem">
-        <div style="font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--terracota);font-weight:500">Cardápio da experiência</div>
-        <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--forest);line-height:1.1">Café da floresta</div>
-        <div style="width:100%;height:1px;background:var(--clay);opacity:.3"></div>
-        <div style="display:flex;flex-direction:column;gap:5px;width:100%">
-          <div style="display:flex;justify-content:space-between;font-size:12px;font-weight:300;color:var(--charcoal)"><span>Café de sombra · colhido aqui</span><span style="color:var(--terracota)">✦</span></div>
-          <div style="display:flex;justify-content:space-between;font-size:12px;font-weight:300;color:var(--charcoal)"><span>Frutas da agrofloresta</span><span style="color:var(--terracota)">✦</span></div>
-          <div style="display:flex;justify-content:space-between;font-size:12px;font-weight:300;color:var(--charcoal)"><span>Tapioca com ora-pro-nóbis</span><span style="color:var(--terracota)">✦</span></div>
-          <div style="display:flex;justify-content:space-between;font-size:12px;font-weight:300;color:var(--charcoal)"><span>Suco de pitanga & hortelã</span><span style="color:var(--terracota)">✦</span></div>
-        </div>
-        <div style="font-family:'Cormorant Garamond',serif;font-size:11px;font-style:italic;color:var(--warm-gray)">Todos os ingredientes são do terreno.</div>
-      </div>
-      <div class="app-label">Cardápio das experiências</div>
-    </div>
-  </div>
-</div>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, {threshold: 0.15});
 
-<!-- ═══════════ NEXT STEPS ═══════════ -->
-<div class="section">
-  <p class="section-label">08 — Próximos passos</p>
-  <h2 class="section-title">Do briefing à <em>marca viva</em></h2>
-
-  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:2rem">
-    <div style="background:var(--cream);border-radius:12px;padding:1.5rem">
-      <div style="font-size:22px;font-family:'Cormorant Garamond',serif;font-weight:300;color:var(--forest);margin-bottom:.75rem">01</div>
-      <div style="font-size:14px;font-weight:500;color:var(--charcoal);margin-bottom:.5rem">Aprovar o nome</div>
-      <div style="font-size:13px;font-weight:300;color:var(--warm-gray);line-height:1.6">Confirmar "Raiz Viva" com a dona. Verificar disponibilidade de domínio raizvivaforest.com e @raizvivaforest no Instagram.</div>
-    </div>
-    <div style="background:var(--cream);border-radius:12px;padding:1.5rem">
-      <div style="font-size:22px;font-family:'Cormorant Garamond',serif;font-weight:300;color:var(--forest);margin-bottom:.75rem">02</div>
-      <div style="font-size:14px;font-weight:500;color:var(--charcoal);margin-bottom:.5rem">Construir o logo final</div>
-      <div style="font-size:13px;font-weight:300;color:var(--warm-gray);line-height:1.6">Contratar designer freelance (Workana, 99designs) com este briefing. Budget sugerido: R$ 500–1.500 para logo completo em SVG/AI.</div>
-    </div>
-    <div style="background:var(--cream);border-radius:12px;padding:1.5rem">
-      <div style="font-size:22px;font-family:'Cormorant Garamond',serif;font-weight:300;color:var(--forest);margin-bottom:.75rem">03</div>
-      <div style="font-size:14px;font-weight:500;color:var(--charcoal);margin-bottom:.5rem">Criar o preset Lightroom</div>
-      <div style="font-size:13px;font-weight:300;color:var(--warm-gray);line-height:1.6">Tons quentes (+15), realce de verde (hue -10, sat +20), pretos profundos (+10 contraste). Aplicar em todas as fotos para consistência de feed.</div>
-    </div>
-    <div style="background:var(--cream);border-radius:12px;padding:1.5rem">
-      <div style="font-size:22px;font-family:'Cormorant Garamond',serif;font-weight:300;color:var(--forest);margin-bottom:.75rem">04</div>
-      <div style="font-size:14px;font-weight:500;color:var(--charcoal);margin-bottom:.5rem">Lançar o Instagram</div>
-      <div style="font-size:13px;font-weight:300;color:var(--warm-gray);line-height:1.6">Primeiros 9 posts no grid antes de qualquer divulgação. 3 de cada pilar. Legendas bilíngues. Bio em inglês com link para WhatsApp.</div>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════ FOOTER ═══════════ -->
-<div class="footer">
-  <div class="footer-brand">Raiz <em>Viva</em></div>
-  <div class="footer-sub">Grow deep &nbsp;·&nbsp; Live present</div>
-  <div class="footer-meta">Brand Identity Briefing · 2025 · Mata Atlântica, ES, Brasil</div>
-</div>
-
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
